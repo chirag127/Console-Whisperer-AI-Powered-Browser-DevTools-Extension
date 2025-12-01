@@ -1,228 +1,85 @@
-# 🔧 Console Whisperer
+# Console-Whisperer-AI-Powered-Browser-DevTools-Extension
 
-A browser extension that translates cryptic JavaScript console errors into plain English explanations with AI-powered fix suggestions.
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/Console-Whisperer-AI-Powered-Browser-DevTools-Extension/actions)
+[![Version](https://img.shields.io/github/v/release/Console-Whisperer-AI-Powered-Browser-DevTools-Extension?color=blue)](https://github.com/Console-Whisperer-AI-Powered-Browser-DevTools-Extension/releases)
+[![License](https://img.shields.io/github/license/Console-Whisperer-AI-Powered-Browser-DevTools-Extension?color=blue)](LICENSE)
 
-## 📋 Overview
+Unleash the power of AI in your browser's developer console! 🚀 Console Whisperer supercharges your debugging experience, providing intelligent insights, error explanations, and code suggestions directly where you need them. Boost productivity and conquer JavaScript challenges with this essential developer extension. ✨
 
-Console Whisperer is a developer tool that helps you understand and fix JavaScript errors faster. It intercepts browser console errors in real-time and uses Gemini 2.0 Flash Lite to:
+---
 
--   💡 Explain the error in plain English
--   🛠️ Suggest potential fixes with code examples
--   🔗 Provide relevant StackOverflow and GitHub links
--   📊 Show the error context and stack trace
+### 🌟 Features
 
-All of this happens inline with your development workflow, so you can stay focused on coding instead of Googling error messages.
+*   **Intelligent Error Explanations:** Get clear, concise, and actionable explanations for console errors.
+*   **Code Suggestions & Refinements:** Receive AI-driven recommendations to optimize your JavaScript code directly within the console.
+*   **Contextual Debugging Insights:** Understand complex application states and variable values with AI assistance.
+*   **Automated Log Analysis:** Effortlessly parse and make sense of verbose console outputs.
+*   **Seamless Browser Integration:** Works with your existing DevTools, enhancing rather than replacing.
 
-## ✨ Features
+### 🤔 Why Console Whisperer?
 
-### 🔍 Real-time Error Detection
+Debugging can be a time-consuming and frustrating process. Console Whisperer leverages cutting-edge AI to transform your browser's console into an intelligent assistant. It empowers developers to identify, understand, and resolve issues faster, dramatically improving development workflows and reducing time spent on troubleshooting. Spend less time deciphering logs and more time building innovative features!
 
--   Intercepts errors via `window.onerror`
--   Captures `console.error` calls
--   Listens for unhandled promise rejections
+### 🚀 Installation
 
-### 🧠 AI-Powered Explanations
-
--   Translates technical errors into plain English
--   Explains the likely cause of the error
--   Suggests specific fixes for your code
-
-### 🌐 Contextual Link Aggregation
-
--   Finds relevant StackOverflow answers
--   Discovers related GitHub issues
--   Ranks links by relevance to your specific error
-
-### 💬 Elegant UI
-
--   Non-intrusive overlay that appears when errors occur
--   Copy-to-clipboard functionality for suggested fixes
--   Collapsible sections for detailed information
-
-## 🚀 Installation
-
-### Chrome Web Store
-
-Coming soon!
-
-### Manual Installation
-
-1. Clone this repository:
+1.  **Clone the Repository:**
+    ```bash
+    git clone https://github.com/your-username/Console-Whisperer-AI-Powered-Browser-DevTools-Extension.git
+    cd Console-Whisperer-AI-Powered-Browser-DevTools-Extension
     ```
-    git clone https://github.com/chirag127/Console-Whisperer-Browser-Extension.git
+2.  **Install Dependencies:**
+    ```bash
+    # For the backend (assuming Node.js or Python setup)
+    cd backend && npm install # or pip install -r requirements.txt
+    # For the extension
+    cd ../extension && npm install # or yarn install
     ```
-2. Open Chrome and navigate to `chrome://extensions/`
-3. Enable "Developer mode" in the top-right corner
-4. Click "Load unpacked" and select the `extension` folder from the cloned repository
-
-## 🛠️ Development
-
-### Prerequisites
-
--   Node.js (v14 or higher)
--   npm (v6 or higher)
-
-### Extension Development
-
-1. Clone the repository:
+3.  **Build the Extension:**
+    ```bash
+    cd extension && npm run build # or yarn build
     ```
-    git clone https://github.com/chirag127/Console-Whisperer-Browser-Extension.git
-    ```
-2. Navigate to the extension directory:
-    ```
-    cd Console-Whisperer-Browser-Extension/extension
-    ```
-3. Load the extension in Chrome as described in the installation section
-4. Make your changes and reload the extension to see them
-
-### Backend Development
-
-1. Navigate to the backend directory:
-    ```
-    cd Console-Whisperer-Browser-Extension/backend
-    ```
-2. Install dependencies:
-    ```
-    npm install
-    ```
-3. Create a `.env` file based on `.env.example` and add your Gemini API key
-4. Start the development server:
-    ```
-    npm run dev
+4.  **Load into Browser:**
+    *   Open your browser's Extensions page (e.g., `chrome://extensions` or `about:addons`).
+    *   Enable "Developer mode".
+    *   Click "Load unpacked" and select the `extension/dist` directory (or similar build output).
+5.  **Start the Backend:**
+    ```bash
+    cd backend && npm start # or python app.py
     ```
 
-## 🏗️ Architecture
+### 💡 Usage
 
-### Extension
+Once installed, open your browser's developer console. Console Whisperer will automatically start analyzing your console output and provide real-time suggestions, explanations, and insights. Look for a new tab or panel within your DevTools, or specific annotations within your console logs. You can configure its behavior via the extension's popup or settings page.
 
--   **Manifest V3** compliant browser extension
--   **Background Service Worker** for handling API communication
--   **Content Scripts** for intercepting errors and displaying UI
--   **Storage API** for caching responses and settings
+### 🏗️ Architecture Overview
 
-### Backend
-
--   **Node.js + Express** server
--   **Gemini 2.0 Flash Lite** for AI-powered error explanations
--   **Caching** for improved performance
--   **Rate limiting** to prevent abuse
-
-## 📄 API
-
-### Error Processing
+The project is structured to ensure modularity and clear separation of concerns:
 
 ```
-POST /api/errors
+.
+├── backend/                  # AI processing logic and API server
+├── docs/                     # Project documentation, setup guides
+├── extension/                # Browser extension source code (frontend)
+│   ├── src/                  # Core extension logic and UI
+│   ├── public/               # Static assets
+│   └── manifest.json         # Extension manifest
+├── shared/                   # Shared types, utilities, and constants between backend and extension
+├── scripts/                  # Helper scripts for development, build, deployment
+├── .github/                  # GitHub Actions CI/CD workflows
+├── CONTRIBUTING.md           # Guidelines for contributors
+├── LICENSE                   # Project license
+├── README.md                 # This documentation file
+└── docker-compose.yml        # Docker setup for local development
 ```
 
-Processes an error and returns an explanation, suggested fix, and relevant links.
+### 🤝 Contributing
 
-**Request Body:**
+We welcome contributions! Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to get started.
 
-```json
-{
-    "errorData": {
-        "message": "Uncaught TypeError: Cannot read properties of undefined (reading 'foo')",
-        "stack": "TypeError: Cannot read properties of undefined (reading 'foo')\n    at bar (app.js:45)\n    at foo (app.js:30)",
-        "url": "https://example.com",
-        "type": "window.onerror"
-    }
-}
-```
+### 📄 License
 
-**Response:**
+This project is licensed under the [LICENSE](LICENSE) file.
 
-```json
-{
-    "originalError": {
-        /* Error data */
-    },
-    "explanation": "You're trying to access a property 'foo' on an object that is undefined...",
-    "suggestedFix": "Make sure the object exists before accessing its properties:\n\nif (myObject) {\n  myObject.foo();\n}",
-    "possibleCauses": [
-        "The object hasn't been initialized",
-        "The object is null or undefined"
-    ],
-    "links": [
-        {
-            "url": "https://stackoverflow.com/questions/...",
-            "title": "How to fix 'Cannot read property of undefined'",
-            "source": "stackoverflow"
-        }
-    ]
-}
-```
+### ❤️ Support
 
-### Link Aggregation
-
-```
-GET /api/links?query=TypeError+Cannot+read+properties+of+undefined
-```
-
-Returns links related to the specified error query.
-
-**Response:**
-
-```json
-{
-    "links": [
-        {
-            "url": "https://stackoverflow.com/questions/...",
-            "title": "How to fix 'Cannot read property of undefined'",
-            "source": "stackoverflow"
-        },
-        {
-            "url": "https://github.com/...",
-            "title": "Fix for TypeError: Cannot read properties of undefined",
-            "source": "github"
-        }
-    ]
-}
-```
-
-## 📊 Project Structure
-
-```
-console-whisperer/
-├── extension/               # Browser extension
-│   ├── manifest.json        # Extension manifest
-│   ├── assets/              # Static assets
-│   ├── background/          # Background scripts
-│   ├── content/             # Content scripts
-│   ├── popup/               # Popup UI
-│   ├── styles/              # Shared styles
-│   └── utils/               # Utility functions
-├── backend/                 # Node.js backend
-│   ├── index.js             # Entry point
-│   ├── config/              # Configuration
-│   ├── controllers/         # Route controllers
-│   ├── routes/              # API routes
-│   ├── services/            # Business logic
-│   ├── utils/               # Utility functions
-│   └── middleware/          # Express middleware
-├── shared/                  # Shared code
-│   ├── constants.js         # Shared constants
-│   ├── errorTypes.js        # Error type definitions
-│   └── utils/               # Shared utilities
-└── docs/                    # Documentation
-```
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📬 Contact
-
-Chirag Singhal - [GitHub](https://github.com/chirag127)
-
-Project Link: [https://github.com/chirag127/Console-Whisperer-Browser-Extension](https://github.com/chirag127/Console-Whisperer-Browser-Extension)
+If you find Console Whisperer useful, please consider giving it a **Star ⭐** on GitHub! Your support helps us continue to develop and improve this project. Thank you!
