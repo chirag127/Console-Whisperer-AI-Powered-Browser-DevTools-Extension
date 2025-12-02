@@ -1,57 +1,39 @@
-# Security Policy for Console Whisperer AI DevTools Copilot Browser Extension
+# Security Policy
 
-As the Apex Technical Authority, we treat security as a non-negotiable aspect of our development lifecycle, adhering to Zero-Defect principles.
+## Supported Versions
 
-## 1. Overview & Philosophy
+We are committed to maintaining a secure development environment. The following versions are actively maintained and receive regular security updates:
 
-This repository, built upon TypeScript, Vite, and designed for direct integration within browser DevTools, handles sensitive runtime data. Therefore, security is paramount. We follow the principle of **Least Privilege** for all browser APIs utilized and maintain strict dependency hygiene.
+| Version | Supported          |
+| ------- | ------------------ |
+| Latest  | :white_check_mark: |
 
-## 2. Supported Versions
+Security vulnerabilities in `ConsoleAI-DevTools-Copilot-Browser-Extension` should be reported according to the instructions below to ensure prompt attention and remediation.
 
-We only actively support the latest stable release branch of the extension. Security patches for older major versions are not guaranteed.
+## Reporting a Vulnerability
 
-| Version | Status | Supported Until |
-| :--- | :--- | :--- |
-| v1.x.x (Current) | Active Support | Ongoing |
+We appreciate your efforts to responsibly disclose security vulnerabilities. Please follow these steps:
 
-## 3. Reporting a Vulnerability
+1.  **Do NOT** file a public issue or pull request for security vulnerabilities.
+2.  Send a detailed email to our dedicated security team at: `security@example.com` (Please replace with a real security contact email if available).
+3.  In your email, please include:
+    *   A clear description of the vulnerability.
+    *   Steps to reproduce the vulnerability.
+    *   The affected version(s) of the software.
+    *   Any relevant system information or environment details.
+    *   (Optional) A proof-of-concept exploit.
+4.  We will acknowledge receipt of your vulnerability report within **48 hours**.
+5.  We will investigate and, if necessary, release a fix as quickly as possible. We will also provide updates on the progress of the fix.
+6.  We may choose to publicly disclose the vulnerability once a fix is available, crediting the reporter.
 
-If you discover any security vulnerability within this project, please follow these steps immediately. **DO NOT** open a public issue until the vulnerability has been responsibly disclosed and remediated by the core team.
+## Security Best Practices
 
-**Responsible Disclosure Timeline:**
+As a browser extension and developer tool, security is paramount. We aim to adhere to the following best practices:
 
-1.  **Initial Report (Private):** Immediately email the security contact below with a detailed description of the vulnerability, including proof-of-concept steps, affected files, and potential impact.
-2.  **Triage & Acknowledgement:** We will acknowledge receipt within 48 hours.
-3.  **Remediation:** The Apex team will prioritize patching based on severity (Critical > High > Medium > Low).
-4.  **Public Disclosure:** We will coordinate a public disclosure timeline with you once the patch is released.
+*   **Principle of Least Privilege:** The extension only requests the permissions it absolutely needs to function.
+*   **Input Validation:** All external inputs are validated to prevent injection attacks.
+*   **Secure Data Handling:** Sensitive data, if any, is handled with encryption and stored securely.
+*   **Dependency Management:** We regularly audit and update our dependencies using `uv` and `Ruff` to incorporate the latest security patches.
+*   **Code Audits:** Regular code reviews and automated security checks are part of our development lifecycle.
 
-### Security Contact
-
-Please direct all security-related communications to:
-
-**Email:** `security+console-whisperer@chirag127.dev`
-
-## 4. Vulnerability Disclosure & Severity Scoring
-
-Reported vulnerabilities will be scored using the Common Vulnerability Scoring System (CVSS) version 3.1. Severity mapping for internal triage is as follows:
-
-*   **Critical (9.0 - 10.0):** Remote Code Execution (RCE), Privilege Escalation, Data Exfiltration bypassing standard browser sandboxing.
-*   **High (7.0 - 8.9):** Sensitive data leakage via logs/telemetry, Cross-Site Scripting (XSS) vector within the DevTools overlay.
-*   **Medium (4.0 - 6.9):** Denial of Service (DoS) vector impacting DevTools performance, unauthorized configuration changes.
-*   **Low (0.1 - 3.9):** Informational findings, minor XSS that requires user interaction outside of normal extension workflow.
-
-## 5. Automated Security Scanning
-
-This repository employs automated security checks integrated into the CI/CD pipeline (`.github/workflows/ci.yml`):
-
-*   **Dependency Scanning:** We utilize **Snyk** (via GitHub Actions integration) to continuously monitor for known vulnerabilities in npm/Node dependencies (targeting TypeScript/JavaScript ecosystem risks).
-*   **Static Analysis:** **Biome** is configured not only for formatting but also for catching common anti-patterns that could lead to security issues (e.g., unsafe usage of `eval` or unchecked inputs).
-
-## 6. Development Security Practices
-
-All developers contributing to this project must adhere to the following:
-
-1.  **Input Validation:** All data received from the browser context or external APIs **MUST** be treated as untrusted and rigorously sanitized before rendering or processing.
-2.  **Content Security Policy (CSP):** The extension's manifest rigorously defines a restrictive CSP to prevent unauthorized resource loading.
-3.  **API Key Management:** All secrets (e.g., AI provider keys) are stored securely in GitHub Secrets and are **never** hardcoded or committed.
-4.  **Dependency Review:** All `package.json` dependencies are reviewed for age, license compatibility, and known security advisories before being merged into the main branch.
+Thank you for helping us keep `ConsoleAI-DevTools-Copilot-Browser-Extension` secure!
