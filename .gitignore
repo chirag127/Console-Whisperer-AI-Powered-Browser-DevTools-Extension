@@ -1,32 +1,59 @@
-# Dependencies
-/node_modules
+# Node / npm / Yarn
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Build output
 /dist
 /build
+/out
 
-# IDE/Editor Files
-.vscode/
-*.sublime-project
-*.sublime-workspace
-.idea/
-
-# Build Artifacts (Vite/TypeScript context, common for extensions)
-.vite-manifest.json
-
-# Source Maps & Coverage
-*.map
-/coverage
-
-# Logs and Temp Files
-npm-debug.log*
-.DS_Store
+# Logs
+logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# VS Code specific (if using TypeScript/JS ecosystem)
-.turbo/
+# IDE / Editor specific
+.vscode/
+.idea/
+*.iml
 
-# Test specific temporary files
-/test-reports
-
-# OS specific files
+# OS generated files
+.DS_Store
 Thumbs.db
-.AppleDouble
+
+# Test coverage directory
+coverage
+
+# Environment variables (DO NOT COMMIT SENSITIVE INFO)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Miscellaneous
+.DS_Store
+.env
+.venv
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.tox/
+.nox/
+venv/
+virtualenv/
+
+# Browser Extension specific (if applicable, though this is a JS project)
+chrome_debug.log
+firefox_debug.log
+
+# Editor settings
+.editorconfig
+
+# Temp files
+*.tmp
