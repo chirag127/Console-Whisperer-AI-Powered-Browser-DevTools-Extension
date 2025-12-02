@@ -8,155 +8,72 @@
 
 ---
 
-## 2. AI ORCHESTRATION & GEMINI PROTOCOL (LATE 2025)
-**Mandate:** You must use the specific models below. Strictly follow this **Fallback Cascade**. Always try the smartest model first.
-* **Tier 1 (Intelligence):** `gemini-3-pro-preview` (Nov 2025)
-    * *Capability:* Multimodal understanding, Vibe-coding, Complex Reasoning.
-    * *Context:* 1M Input / 65k Output.
-* **Tier 2 (Reasoning/STEM):** `gemini-2.5-pro` (Stable)
-    * *Capability:* Advanced thinking, Codebases, Math.
-    * *Context:* 1M Input / 65k Output.
-* **Tier 3 (Balanced Speed):** `gemini-2.5-flash` (Stable)
-    * *Capability:* Large scale processing, Agentic use cases.
-    * *Context:* 1M Input / 65k Output.
-* **Tier 4 (Ultra-Fast/Cost):** `gemini-2.5-flash-lite-preview-09-2025`
-    * *Capability:* High throughput, Cost-efficiency.
-    * *Context:* 1M Input / 65k Output.
-* **Tier 5 (Legacy/Specialized):**
-    * `gemini-2.0-flash` (Workhorse fallback).
-    * `gemini-2.5-flash-native-audio-preview-09-2025` (Audio I/O).
-* **Circuit Breaker:** If a model returns 429/500, trigger a **Cool-Off Period** and fallback to the next tier immediately.
-* **Settings:** All these models must be selectable in the user configuration.
+## 2. INPUT PROCESSING & COGNITION
+*   **SPEECH-TO-TEXT INTERPRETATION PROTOCOL:**
+    *   **Context:** User inputs may contain phonetic errors (homophones, typos).
+    *   **Semantic Correction:** **STRICTLY FORBIDDEN** from executing literal typos. You must **INFER** technical intent based on the project context.
+    *   **Logic Anchor:** Treat the `README.md` as the **Single Source of Truth (SSOT)**.
+*   **MANDATORY MCP INSTRUMENTATION:**
+    *   **No Guessing:** Do not hallucinate APIs.
+    *   **Research First:** Use `linkup`/`brave` to search for **December 2025 Industry Standards**, **Security Threats**, and **2026 UI Trends**.
+    *   **Validation:** Use `docfork` to verify *every* external API signature.
+    *   **Reasoning:** Engage `clear-thought-two` to architect complex flows *before* writing code.
 
 ---
 
 ## 3. CONTEXT-AWARE APEX TECH STACKS (LATE 2025 STANDARDS)
-**Directives:** Detect the project type (`package.json`, `Cargo.toml`, `pyproject.toml`) and apply the corresponding **Apex Toolchain**.
-* **SCENARIO A: WEB / APP / EXTENSION (TypeScript)**
-    * **Stack:** **TypeScript 6.x** (Strict), **Vite 7** (Rolldown), **Tauri v2.x** (Native), **WXT** (Extensions).
-    * **State:** **Signals** (Standardized).
-    * **Lint/Test:** **Biome** (Speed) + **Vitest** (Unit) + **Playwright** (E2E).
-* **SCENARIO B: SYSTEMS / PERFORMANCE (Rust/Go)**
-    * **Stack:** **Rust 1.8x** (Cargo) or **Go 1.2x**.
-    * **Lint:** **Clippy** / **GolangCI-Lint**.
-* **SCENARIO C: DATA / SCRIPTS / AI (Python)**
-    * **Stack:** **uv** (Manager), **Ruff** (Linter), **Pytest** (Test).
+**Directives:** This repository, `Console-Whisperer-AI-DevTools-Copilot-Browser-Extension`, is a mission-critical, high-performance browser extension. Apply the **Apex Frontend Toolchain (Scenario A)**.
+
+*   **PRIMARY SCENARIO: WEB / EXTENSION / GUI (TypeScript)**
+    *   **Core Stack:** **TypeScript 5.x/6.x** (Strict Mode, mandatory typing), **Vite 7** (for rapid compilation and HMR), and **React 19** (for UI composition). The extension is built using **WXT** or a similar manifest-v3 compliant framework for robust cross-browser compatibility.
+    *   **Architecture:** Adheres to **Feature-Sliced Design (FSD)** principles. Logic must be strictly segregated into `app`, `pages`, `widgets`, `features`, `entities`, and `shared`. State management must use a standard Signals approach (e.g., Zustand or equivalent).
+    *   **Styling:** Utilizes **Tailwind CSS v4** for utility-first styling, ensuring atomic design and minimizing bundle size for injection scripts.
+    *   **Linting & Formatting:** **Biome** is the sole source of truth for formatting and linting (`biome check --apply`).
+    *   **AI Integration:** Communication with the AI backend (external service) must be handled by a dedicated `services/ai` module, utilizing standardized request/response schemas (Zod enforced). All API keys must be handled securely via environment variables or a secrets manager.
+
+*   **SECONDARY SCENARIO B: SYSTEMS / PERFORMANCE (Rust/Go) - *Not applicable.***
+
+*   **SECONDARY SCENARIO C: DATA / AI / SCRIPTS (Python) - *Not applicable.***
 
 ---
 
-## 4. RECURSIVE PERFECTION LOOP (THE "ZERO-ERROR" MANDATE)
-**Context:** The user demands absolute perfection. You must not stop until the codebase is pristine.
-**The Loop:**
-1.  **Analyze:** Scan the codebase.
-2.  **Fix:** Apply architectural patterns and fixes.
-3.  **Lint/Format:** Run `biome check --apply` / `ruff check --fix`.
-4.  **Test:** Run `vitest` / `pytest`.
-5.  **DECISION GATE:**
-    * **IF** Errors/Warnings exist -> **GO TO STEP 2** (Self-Correct immediately).
-    * **IF** Clean -> **COMMIT** and Present.
-**Constraint:** **DO NOT STOP** until the build is perfectly clean.
+## 4. CODE QUALITY & VERIFICATION PROTOCOL
+**Objective:** Maintain P95 performance metrics and zero-defect deployment.
+
+### 4.1. ARCHITECTURAL PRINCIPLES
+1.  **SOLID:** Strict adherence to Single Responsibility (SR) and Dependency Inversion (DI).
+2.  **DRY/KISS:** Eliminate redundancy. Favor clarity and simplicity.
+3.  **YAGNI:** Build only what is required *now*. Architect for scalability, but implement functionality incrementally.
+4.  **Security Focus:** All content script injection methods must be sanitized. No `eval()` or `new Function()`. Secure communication between background/content/popup scripts.
+
+### 4.2. TESTING MANDATE
+*   **Unit Testing:** **Vitest** is mandatory for all core utility functions and React components (coverage target > 90%).
+    *   *Verification Command:* `npm run test:unit`
+*   **Integration Testing:** Critical flow tests (e.g., console interaction, API calls) must be covered.
+    *   *Verification Command:* `npm run test:integration`
+*   **E2E Testing:** **Playwright** is required for simulating user interaction within the DevTools panel and verifying correct AI response rendering.
+    *   *Verification Command:* `npm run test:e2e`
+
+### 4.3. COMMAND INVOCATION CHECKLIST
+The following commands MUST execute successfully prior to any pull request merge:
+
+| Command | Description | Tooling |
+| :--- | :--- | :--- |
+| `npm install` | Initializes project dependencies. | uv/npm |
+| `npm run build` | Creates production-ready artifact. | Vite |
+| `npm run lint` | Lints and enforces code standards. | Biome |
+| `npm run format` | Applies mandatory formatting rules. | Biome |
+| `npm run test:ci` | Executes all unit, integration, and coverage checks. | Vitest/Playwright |
 
 ---
 
-## 5. CORE ARCHITECTURAL PRINCIPLES
-* **SOLID MANDATE:** SRP, OCP, LSP, ISP, DIP.
-* **MODULARITY:** Feature-First Structure (`features/auth`), not type.
-* **CQS:** Methods must be **Commands** (Action) or **Queries** (Data), never both.
-* **12-Factor App:** Config in environment; backing services attached resources.
+## 5. REPOSITORY METADATA INTEGRITY
+**MANDATE:** This section defines the immutable repository identity. Any proposed changes must be run through a Level 4 Architecture Review Board (ARB).
 
----
-
-## 6. CODE HYGIENE & STANDARDS (READABILITY FIRST)
-* **SEMANTIC NAMING PROTOCOL:**
-    * **Descriptive Verbs:** `calculateWeeklyPay` (Good) vs `calc` (Bad).
-    * **Casing:** `camelCase` (JS/TS), `snake_case` (Python), `PascalCase` (Classes).
-* **CLEAN CODE RULES:**
-    * **Verticality:** Optimize for reading down.
-    * **No Nesting:** Use **Guard Clauses** (`return early`).
-    * **DRY & KISS:** Automate repetitive tasks. Keep logic simple.
-    * **Zero Comments:** Code must be **Self-Documenting**. Use comments *only* for "Why".
-
----
-
-## 7. RELIABILITY, SECURITY & SUSTAINABILITY
-* **DEVSECOPS PROTOCOL:**
-    * **Zero Trust:** Sanitize **ALL** inputs (OWASP Top 10 2025).
-    * **Supply Chain:** Generate **SBOMs** for all builds.
-    * **Fail Fast:** Throw errors immediately on invalid state.
-    * **Encryption:** Secure sensitive data at rest and in transit.
-* **EXCEPTION HANDLING:**
-    * **Resilience:** App must **NEVER** crash. Wrap critical I/O in `try-catch-finally`.
-    * **Recovery:** Implement retry logic with exponential backoff.
-* **GREEN SOFTWARE:**
-    * **Rule of Least Power:** Choose the lightest tool for the job.
-    * **Efficiency:** Optimize loops ($O(n)$ over $O(n^2)$).
-    * **Lazy Loading:** Load resources only when needed.
-
----
-
-## 8. COMPREHENSIVE TESTING STRATEGY
-* **FOLDER SEPARATION PROTOCOL:**
-    * **Production Purity:** Source folder is for code ONLY.
-    * **Mirror Structure:** Tests reside exclusively in `tests/`.
-* **TESTING PYRAMID (F.I.R.S.T.):**
-    * **Fast:** Tests run in milliseconds.
-    * **Isolated:** No external dependencies (Mock DB/Network).
-    * **Repeatable:** Deterministic results.
-* **COVERAGE MANDATE:**
-    * **1:1 Mapping:** Every source file **MUST** have a corresponding test file.
-    * **Scenario Coverage:** Test **Success**, **Failure**, and **Edge Cases**.
-    * **Zero-Error Standard:** Software must run with 0 console errors.
-
----
-
-## 9. UI/UX AESTHETIC SINGULARITY (2026 STANDARD)
-* **VISUAL LANGUAGE:**
-    * **Style:** Blend **Liquid Glass** + **Neo-Brutalist** + **Material You 3.0**.
-    * **Motion:** **MANDATORY** fluid animations (`transition: all 0.2s`).
-* **PERFORMANCE UX:**
-    * **INP Optimization:** Interaction to Next Paint < 200ms.
-    * **Optimistic UI:** UI updates instantly; server syncs in background.
-* **INTERACTION DESIGN:**
-    * **Hyper-Personalization:** Adapt layouts based on user behavior.
-    * **Micro-interactions:** Every click/hover must have feedback.
-* **HYPER-CONFIGURABILITY:**
-    * **Mandate:** Every feature/color must be user-configurable via Settings.
-
----
-
-## 10. DOCUMENTATION & VERSION CONTROL
-* **HERO-TIER README (SOCIAL PROOF):**
-    * **BLUF:** Bottom Line Up Front. Value prop first.
-    * **Live Sync:** Update README **IN THE SAME TURN** as code changes.
-    * **Visuals:** High-Res Badges (Shields.io), ASCII Architecture Trees.
-    * **AI Replication Block:** Include `<details>` with stack info for other agents.
-    * **Social Proof:** Explicitly ask users to **"Star ⭐ this Repo"**.
-* **ADVANCED GIT OPERATIONS:**
-    * **Context Archaeology:** Use `git log`/`git blame`.
-    * **Conventional Commits:** Strict format (`feat:`, `fix:`, `docs:`).
-    * **Semantic Versioning:** Enforce `Major.Minor.Patch`.
-
----
-
-## 11. AUTOMATION SINGULARITY (GITHUB ACTIONS)
-* **Mandate:** Automate CI/CD immediately.
-* **Workflows:** 
-    1. **Integrity:** Lint + Test on Push.
-    2. **Security:** Audit dependencies + SBOM.
-    3. **Release:** Semantic Versioning + Artifact Upload.
-    4. **Deps:** Auto-merge non-breaking updates.
-
----
-
-## 12. THE ATOMIC EXECUTION CYCLE
-**You must follow this loop for EVERY logical step:**
-1.  **Audit:** Scan state (`ls -R`) & History (`git log`).
-2.  **Research:** Query Best Practices & Trends.
-3.  **Plan:** Architect via `clear-thought-two`.
-4.  **Act:** Fix Code + Polish + Add Settings + Write Tests.
-5.  **Automate:** Create/Update CI/CD YAMLs.
-6.  **Docs:** Update `README.md` (Replication Ready).
-7.  **Verify:** Run Tests & Linters.
-8.  **REITERATE:** If *any* error/warning exists, fix it immediately.
-    **DO NOT STOP** until the build is perfectly clean.
-9.  **Commit:** `git commit` immediately (Only when clean).
+| Attribute | Required Value | Rationale |
+| :--- | :--- | :--- |
+| **Name** | `Console-Whisperer-AI-DevTools-Copilot-Browser-Extension` | Defines Product, Function, Platform, and Type. High-velocity naming convention. |
+| **Description** | Intelligent AI copilot for browser DevTools. Get real-time error analysis, code optimization, and debugging insights directly in your console. Supercharge developer productivity with AI-powered assistance. | Concise, high-value proposition. |
+| **Primary Language** | TypeScript | Standard for high-quality, scalable front-end and extension development. |
+| **Default Branch** | `main` | Industry Standard. |
+| **Access URL** | `https://github.com/chirag127/Console-Whisperer-AI-DevTools-Copilot-Browser-Extension` | Canonical source location. |
