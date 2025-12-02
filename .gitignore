@@ -1,47 +1,32 @@
-# Apex Standard .gitignore for JavaScript/TypeScript Projects
-
-# Node module directory
-node_modules/
-
-# Build output directories
+# Dependencies
+/node_modules
 /dist
 /build
-/out
-/.next/
-/.nuxt/
-/public/
 
-# Local environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Logging
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# IDE/Editor directories
+# IDE/Editor Files
 .vscode/
-.idea/
 *.sublime-project
 *.sublime-workspace
+.idea/
 
-# OS generated files
+# Build Artifacts (Vite/TypeScript context, common for extensions)
+.vite-manifest.json
+
+# Source Maps & Coverage
+*.map
+/coverage
+
+# Logs and Temp Files
+npm-debug.log*
 .DS_Store
+*.log
+
+# VS Code specific (if using TypeScript/JS ecosystem)
+.turbo/
+
+# Test specific temporary files
+/test-reports
+
+# OS specific files
 Thumbs.db
-
-# Dependency directories
-jest-cache/
-coverage/
-
-# Build artifacts
-*.tsbuildinfo
-
-# Tauri specific files (if applicable)
-.tauri/
-src-tauri/target/
+.AppleDouble
