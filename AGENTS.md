@@ -22,55 +22,71 @@
 ---
 
 ## 3. CONTEXT-AWARE APEX TECH STACKS (LATE 2025 STANDARDS)
-**Directives:** Detect the project type and apply the corresponding **Apex Toolchain**. This repository, `ConsoleAI-DevTools-Copilot-Browser-Extension`, is a browser extension leveraging JavaScript and AI.
+**Directives:** Detect the project type and apply the corresponding **Apex Toolchain**. This repository, `ConsoleAI-DevTools-Copilot-Browser-Extension`, is a JavaScript/TypeScript browser extension.
 
-*   **PRIMARY SCENARIO A: WEB / APP / EXTENSION (JavaScript/TypeScript)**
-    *   **Stack:** This project leverages **JavaScript** (with potential for TypeScript adoption) for its browser extension core. The build process is managed by **Vite 7 (Rolldown)**, ensuring high performance. For native integration capabilities and desktop packaging, **Tauri v2.x** is the standard. State management follows **Signals (Standardized)** patterns. Extension development is standardized via **WXT (Web Extension Tooling)**.
-    *   **Linting & Formatting:** **Biome** is mandated for its unparalleled speed and comprehensive code quality checks.
-    *   **Testing:** **Vitest** for unit and integration testing, and **Playwright** for end-to-end (E2E) browser testing.
-    *   **Architecture:** Employs **Feature-Sliced Design (FSD)** for maintainable, scalable frontend architecture.
-    *   **AI Integration:** Leverages **OpenAI API** (or equivalent, e.g., Google Gemini) for AI-driven insights. Prioritize modular design, clear API contracts, and robust error handling for all AI model interactions.
+*   **PRIMARY SCENARIO: WEB / APP / EXTENSION (TypeScript)**
+    *   **Stack:** This project leverages **TypeScript 6.x** (with strict mode enabled), **Vite 7** (powered by Rolldown for build speed), and is built as a **Browser Extension**. The extension framework **WXT (Web Extension Tooling)** is the standard for cross-browser compatibility and modern development practices.
+    *   **Linting & Formatting:** **Biome** is mandated for its unparalleled speed in linting, formatting, and code analysis across JavaScript and TypeScript codebases.
+    *   **Testing:** **Vitest** is the standard for unit and component testing, offering fast, Vite-native test execution. **Playwright** is utilized for end-to-end (E2E) testing, ensuring comprehensive validation of user flows and interactions within the browser environment.
+    *   **Architecture:** Adheres to **Feature-Sliced Design (FSD)** principles, promoting modularity, scalability, and maintainability. This pattern is crucial for managing the complexity of browser extensions with evolving features.
+    *   **State Management:** Standardized use of **Signals** for reactive state management, ensuring efficient UI updates and data flow.
 
-*   **SECONDARY SCENARIO B: SYSTEMS / PERFORMANCE (Rust/Go) - *Not applicable for this project. Reference only for potential backend services.***
-    *   **Stack:** Rust (Cargo) or Go (Modules).
-    *   **Lint:** Clippy / GolangCI-Lint.
-    *   **Architecture:** Hexagonal Architecture (Ports & Adapters).
-
-*   **TERTIARY SCENARIO C: DATA / AI / SCRIPTS (Python) - *Not applicable for this project. Reference only for potential data analysis or script backends.***
+*   **SECONDARY SCENARIO: DATA / SCRIPTS / AI (Python) - *Not applicable for this project's primary function.***
     *   **Stack:** uv (Manager), Ruff (Linter), Pytest (Test).
     *   **Architecture:** Modular Monolith or Microservices.
+    *   **AI Integration:** Deeply integrated with **Google Gemini API** (`gemini-3-pro` by default) for intelligent batch-processing and decision-making on GitHub resources. Prioritize modular design, clear API contracts, and robust error handling for all AI model interactions.
+    *   **CLI Framework:** Uses `Click` or similar for a powerful and intuitive command-line interface.
 
 ---
 
-## 4. CODE VERIFICATION & VALIDATION (APEX STANDARD 5)
-*   **LINTING:** `biome check --apply src/
-`
-*   **TESTING (UNIT/INTEGRATION):** `vitest run --coverage
-`
-*   **TESTING (E2E):** `npx playwright test
-`
-*   **BUILD:** `npx vite build
-`
-*   **EXTENSION DEVELOPMENT BUILD:** `wxt build --type firefox
-` (or `chrome`, `edge` as applicable)
-*   **NATIVE PACKAGING (If Tauri):** `npx tauri build
-`
+## 4. ARCHITECTURAL PRINCIPLES & VERIFICATION PROTOCOLS
+*   **SOLID Principles:** MANDATORY adherence to Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion.
+*   **DRY (Don't Repeat Yourself):** Minimize code duplication through abstraction and reusable components.
+*   **YAGNI (You Ain't Gonna Need It):** Implement only what is necessary for the current requirements to maintain agility.
+*   **KISS (Keep It Simple, Stupid):** Favor straightforward solutions over complex ones.
+*   **Defensive Programming:** Implement robust error handling, input validation, and edge case management.
 
 ---
 
-## 5. REPOSITORY STANDARDS (APEX ARCHIVAL PROTOCOL)
-*   **GitHub User:** `chirag127`
-*   **Repository:** `ConsoleAI-DevTools-Copilot-Browser-Extension`
-*   **License:** `CC BY-NC 4.0`
-*   **Branching Strategy:** GitFlow (main, develop, feature/*, release/*, hotfix/*).
+## 5. DEVELOPMENT WORKFLOW & COMMANDS (LATE 2025 STANDARD)
+*   **Version Control:** **Git** (v2.40+).
+*   **Repository URL:** `https://github.com/chirag127/ConsoleAI-DevTools-Copilot-Browser-Extension`
+*   **Package Management:** **NPM** (v10+).
+*   **Core Development Commands:**
+    *   `git clone https://github.com/chirag127/ConsoleAI-DevTools-Copilot-Browser-Extension.git`
+    *   `cd ConsoleAI-DevTools-Copilot-Browser-Extension`
+    *   `npm install`
+*   **Build & Development:**
+    *   `npm run dev`: Starts the Vite development server with hot module replacement.
+    *   `npm run build`: Creates an optimized production build for the browser extension.
+*   **Linting & Formatting:**
+    *   `npm run lint`: Runs Biome to check for code style issues and potential errors.
+    *   `npm run format`: Runs Biome to automatically format the codebase according to defined rules.
+*   **Testing:**
+    *   `npm run test:unit`: Executes unit tests using Vitest.
+    *   `npm run test:e2e`: Executes end-to-end tests using Playwright.
+    *   `npm run test:coverage`: Generates code coverage reports.
 
 ---
 
-## 6. AI ASSISTANT GUIDELINES (THE "PRIME DIRECTIVE" ENFORCEMENT)
-*   **Goal Alignment:** All AI interactions must demonstrably contribute to the **`ConsoleAI-DevTools-Copilot-Browser-Extension`**'s core value proposition: "AI-powered copilot for browser developer tools, providing real-time error analysis, code optimization, and debugging insights to boost developer productivity."
-*   **Resource Management:** AI calls must be efficient. Implement caching, rate limiting, and prompt optimization to minimize latency and cost.
-*   **Contextual Awareness:** AI must operate solely within the scope of browser developer tools. It should not generate unrelated code, offer general programming advice, or attempt to debug non-browser-related issues.
-*   **Output Formatting:** AI-generated insights, explanations, and code suggestions must be clearly delineated and formatted for easy consumption within the browser dev tools interface.
-*   **Security & Privacy:** Never transmit sensitive user data (e.g., passwords, private keys, personal information) to AI models. Sanitize inputs and outputs rigorously.
-*   **Feedback Loop:** Integrate mechanisms for user feedback on AI suggestions to enable continuous improvement and model retraining.
-*   **Ethical Considerations:** Avoid generating biased, discriminatory, or harmful content. Ensure AI explanations are transparent and understandable.
+## 6. AI AGENT DIRECTIVES (FOR `ConsoleAI-DevTools-Copilot-Browser-Extension`)
+*   **Purpose:** This browser extension acts as an AI-powered copilot for browser developer tools. It analyzes real-time errors, suggests code optimizations, and provides debugging insights to enhance developer productivity.
+*   **Core Functionality:**
+    *   **Error Analysis:** Intercepts and analyzes JavaScript runtime errors, console logs, and network requests. Leverages AI models to provide explanations, root cause analysis, and potential solutions.
+    *   **Code Optimization:** Scans DOM elements and associated JavaScript for potential performance bottlenecks. Offers AI-driven suggestions for refactoring, lazy loading, and improving efficiency.
+    *   **Debugging Insights:** Provides context-aware debugging tips and interactive visualizations based on current developer tool state.
+*   **AI Integration:**
+    *   **Model:** Primarily utilizes **OpenAI's GPT-4 Turbo** (or equivalent advanced models available in Dec 2025) for natural language understanding, code analysis, and suggestion generation. Fallback to smaller, faster models for less critical tasks if performance dictates.
+    *   **API Interaction:** All AI API calls must be managed via a dedicated service layer (`src/services/aiService.ts`). Ensure robust error handling, rate limiting, and caching mechanisms.
+    *   **Prompt Engineering:** Prompts must be meticulously crafted, providing sufficient context (error messages, code snippets, DOM structure) to elicit accurate and actionable responses from the AI.
+*   **Technology Stack Alignment:** Ensure all code adheres to the specified TypeScript, Vite, Biome, Vitest, Playwright, WXT, and FSD standards.
+*   **Data Privacy:** User data (code, console logs) should only be processed temporarily for AI analysis and never stored persistently on servers unless explicitly consented to by the user for features like cross-session analysis.
+
+---
+
+## 7. SECURITY & COMPLIANCE MANDATES
+*   **Dependency Scanning:** Utilize `npm audit` and GitHub's Dependabot regularly.
+*   **API Key Management:** Securely manage API keys using environment variables (e.g., `.env` files, managed by Vite's `import.meta.env`) and NEVER commit them to the repository.
+*   **Cross-Site Scripting (XSS) Prevention:** Sanitize all user inputs and dynamically generated content to prevent XSS vulnerabilities, especially when interacting with browser APIs or rendering data.
+*   **Data Handling:** Adhere to strict data privacy regulations (e.g., GDPR, CCPA). Be transparent about data usage in the `SECURITY.md` file.
+*   **Browser Extension Security:** Follow best practices for browser extension security, including Content Security Policy (CSP) configurations, avoiding unnecessary permissions, and proper sanitization of messages between different parts of the extension (content scripts, background scripts, popup UI).
